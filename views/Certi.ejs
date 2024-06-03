@@ -1,0 +1,203 @@
+<style>
+/* left */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.menu {
+    float:left;
+    width: 200px;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: solid 2px navy;
+    height: 1000px;
+}
+
+.btn{
+    display: block;
+    padding: 20px 20px;
+    color: navy;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.main-content .menu .Page .Pages{
+    padding: 10px 20px 34px 0px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.main-content .menu .Page .Pages > a{
+    padding-left: 35px;
+}
+
+.main-content .menu .Page .Pages:hover > a{
+    background-color: navy;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu .ul{
+    text-align: center;
+    position: relative;
+    }
+
+.Page{
+    width: 250px;
+    display: block;
+    overflow: hidden;
+}
+
+#certificate.Pages > a {
+    background-color: navy;
+    color: #fff;
+    transition: .3s;
+}
+
+/*right-top*/
+.card-content{
+    padding-top: 20px;
+}
+
+.card-content a1{
+    margin-left: 30px;
+    color:navy;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+/* 자격증 정보 */
+#wrapper{
+    display:grid; 
+    grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+
+.card {
+    width: 400px;
+    color: black;
+    background-color:white;
+    border: solid 2px gray;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.card p {
+    text-align: center;
+    padding:0.6rem;
+    line-height:1.6em;
+    margin-bottom: 10px;
+}
+
+.card a {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+
+/* 페이지 버튼 css*/
+        /* 페이지네이션 전체 컨테이너 스타일 */
+        .pagination {
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        /* 모든 페이지네이션 링크에 대한 스타일 */
+        .pagination a {
+            color: black; /* 텍스트 색상 */
+            background-color: #ffffff; /* 배경색 */
+            border-radius: 5px; /* 모서리 둥글게 */
+            padding: 8px 16px; /* 안쪽 여백 */
+            margin: 0 4px; /* 주변 여백 */
+            text-decoration: none; /* 밑줄 없애기 */
+            display: inline-block; /* 인라인 블록으로 표시 */
+            transition: background-color 0.3s, color 0.3s; /* 배경색과 텍스트 색상 전환 효과 */
+        }
+        
+        /* 페이지네이션 링크에 마우스 호버 효과 */
+        .pagination a:hover {
+            background-color: #ffffff; /* 호버 시 배경색 변경 */
+            color: rgba(35, 35, 107, 0.945); /* 호버 시 텍스트 색상 변경 */
+        }
+    
+        /* 비활성화된 페이지 링크 스타일 (예: 현재 페이지나 사용할 수 없는 페이지) */
+        .pagination a.disabled, .pagination a.disabled:hover {
+            background-color: #cccccc; /* 비활성화 배경색 */
+            color: #666666; /* 비활성화 텍스트 색상 */
+            cursor: not-allowed; /* 마우스 커서 모양 변경 */
+            pointer-events: none; /* 클릭 이벤트 제거 */
+        }
+        
+        /* 현재 페이지 링크 스타일 */
+        .pagination a.active {
+            background-color: rgba(35, 35, 107, 0.945); /* 활성 페이지 배경색 변경 */
+            color: #ffffff; /* 활성 페이지 텍스트 색상 변경 */
+            font-weight: bold; /* 텍스트를 굵게 */
+            border: 1px solid rgba(35, 35, 107, 0.945); /* 테두리 추가 */
+        }
+
+</style>
+
+<%- include('header.ejs') %>
+
+<div class="main-content">
+    <!-- left -->
+    <div class="menu">
+        <ui class="Page">
+            <li class="Pages" id="info">
+                <a href="Job" class="btn">채용정보</a>
+            </li>
+            <li class="Pages" id="contest">
+                <a href="Contest" class="btn">공모전</a>
+            </li>
+            <li class="Pages" id="certificate">
+                <a href="Certi" class="btn">자격증</a>
+            </li>
+            <li class="Pages" id="exhibition">
+                <a href="Exhibition" class="btn">대외활동</a>
+            </li>
+            <li class="Pages" id="chatbot">
+                <a href="CareerBuddy" class="btn">CareerBuddy</a>
+            </li>
+        </ui>
+    </div>
+
+    <!-- right -->
+    <div class="card-content">
+            <a1> 자격증 </a1>
+        
+            <div id="wrapper">
+                <% if (results && results.length > 0) { %>
+                  <% results.forEach(function(certi) { %>
+                    <div class="card">
+                      <a href="<%= certi.Clinks %>" target="_blank"><%= certi.Cname %></a>
+                      <p><%= certi.Explain %></p>
+                    </div>
+                  <% }); %>
+                <% } %>
+              </div>
+
+        <nav class="pagination">
+            <% if (currentPage > 0) { %>
+              <a href="?page=<%= currentPage - 1 %>" class="control prev">이전</a>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <a href="?page=<%= i %>" class="page <%= currentPage === i ? 'active' : '' %>"><%= i %></a>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+              <a href="?page=<%= currentPage + 1 %>" class="control next">다음</a>
+            <% } %>
+          </nav>
+
+    </div>
+</div>

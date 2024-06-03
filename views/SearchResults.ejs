@@ -1,0 +1,144 @@
+<style>
+/* right */
+.CPage {
+    padding-top: 20px;
+}
+
+.JPage {
+    padding-top: 20px;
+}
+
+.EPage {
+    padding-top: 20px;
+}
+
+.CPage > h2 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.JPage > h3 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.EPage > h4 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+/* 자격증 정보 */
+#wrapper{
+    display:grid; 
+    grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+
+.card {
+    width: 400px;
+    color: black;
+    background-color:white;
+    border: solid 2px gray;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.card p {
+    text-align: center;
+    padding:0.6rem;
+    line-height:1.6em;
+    margin-bottom: 10px;
+}
+
+.card a {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    width: 350px;
+}
+
+</style>
+
+<%- include('header.ejs') %>
+<%- include('left.ejs') %>
+    
+    <div class="JPage" id="JPage">
+      <h3>자격증</h3>
+      <div id="wrapper">
+    <% if (certiResults && certiResults.length > 0) { %>
+            <% certiResults.forEach(function(certi) { %>
+                <div class="card">
+                    <a href="<%= certi.Clinks %>"><%= certi.Cname %></a>
+                    <p><%= certi.Explain %></p>
+                </div>
+            <% }); %>
+          </div>
+    <% } else { %>
+        <p>자격증 검색 결과가 없습니다.</p>
+    <% } %>
+    </div>
+
+    <br>
+
+    <div class="CPage" id="CPage">
+        <h2>공모전</h2>
+        <div id="wrapper">
+    <% if (contestResults && contestResults.length > 0) { %>
+        <% contestResults.forEach(function(contest) { %>
+              <div class="card">
+                  <a href="<%= contest.CL %>"><%= contest.Cn %></a>
+                  <img src="data:image/jpeg;base64,<%= contest.Cimg.toString('base64') %>">
+              </div>
+        <% }); %>
+        </div>
+    <% } else { %>
+        <p>공모전 검색 결과가 없습니다.</p>
+    <% } %>
+    </div>
+
+    <br>
+
+    <div class="EPage" id="EPage">
+        <h4>대외활동</h4>
+        <div id="wrapper">
+    <% if (exhibitionResults && exhibitionResults.length > 0) { %>
+        <% exhibitionResults.forEach(function(exhibition) { %>
+              <div class="card">
+                  <a href="<%= exhibition.EL %>"><%= exhibition.En %></a>
+                  <img src="data:image/jpeg;base64,<%= exhibition.Eimg.toString('base64') %>">
+              </div>
+        <% }); %>
+        </div>
+    <% } else { %>
+        <p>대외활동 검색 결과가 없습니다.</p>
+    <% } %>
+    </div>

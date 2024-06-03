@@ -1,0 +1,198 @@
+<style>
+    /* left */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.menu {
+    float:left;
+    width: 200px;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: solid 2px navy;
+    height: 125%;
+}
+
+.btn{
+    display: block;
+    padding: 20px 20px;
+    color: navy;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.main-content .menu .Page .Pages{
+    padding: 10px 20px 34px 0px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.main-content .menu .Page .Pages > a{
+    padding-left: 35px;
+}
+
+.main-content .menu .Page .Pages:hover > a{
+    background-color: navy;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu .ul{
+    text-align: center;
+    position: relative;
+      }
+
+.Page{
+    width: 250px;
+    display: block;
+    overflow: hidden;
+}
+
+#chatbot.Pages > a {
+    background-color: navy;
+    color: #fff;
+    transition: .3s;
+}
+
+/*right-top*/
+.chatinfo {
+    padding-top: 100px;
+    padding-bottom:30px;
+    background-image:radial-gradient(rgba(0, 0, 128, 0.164), white);
+}
+
+.chatinfo > h1 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 55px;
+    font-weight: 1000;
+    color: rgba(35, 35, 107, 0.841);
+}
+
+.chatinfo > h2 {
+    padding-top: 25px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    color:rgb(26, 26, 79);
+}
+
+.chathow{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    border-top: solid 1px rgba(0, 0, 128, 0.093);
+}
+
+
+.chathow > h3{
+    padding-top: 30px;
+    padding-bottom: 25px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 1000;
+    color: rgba(0, 0, 128, 0.41);
+}
+
+.chathow > h4 {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    color:rgb(26, 26, 79);
+}
+
+.chatbot-button {
+    text-align: center;
+    padding-top: 120px;
+}
+
+.submit-btn {
+    color: aliceblue;
+    font-size: 25px;
+    background-color: rgba(35, 35, 107, 0.945);
+    border-radius: 50px;
+    padding: 25px;
+    width: 500px;
+    margin-bottom: 100px;
+}
+
+.down{
+    text-align: center;
+}
+
+.down > a {
+    color: aliceblue;
+    font-size: 20px;
+    background-color: rgba(35, 35, 107, 0.945);
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+}
+
+h5{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    color:gray;
+}
+
+</style>
+
+<%- include('header.ejs') %>
+
+<div class="main-content">
+    <!-- left -->
+    <div class="menu">
+        <ui class="Page">
+            <li class="Pages" id="info">
+                <a href="Job" class="btn">채용정보</a>
+            </li>
+            <li class="Pages" id="contest">
+                <a href="Contest" class="btn">공모전</a>
+            </li>
+            <li class="Pages" id="certificate">
+                <a href="Certi" class="btn">자격증</a>
+            </li>
+            <li class="Pages" id="exhibition">
+                <a href="Exhibition" class="btn">대외활동</a>
+            </li>
+            <li class="Pages" id="chatbot">
+                <a href="CareerBuddy" class="btn">CareerBuddy</a>
+            </li>
+        </ui>
+    </div>
+</div>
+
+
+<div class="chatinfo">
+    <h1>Career Buddy란 ?</h1>
+    <h2>사용자의 이력서 및 희망 직업을 참고하여 공모전, 자격증, 대외활동 등 취업에 필요한 다양한 정보를 추천하는 시스템입니다.</h2>
+    <h2>사용자는 시간, 장소에 구애받지 않고 "Career Buddy"를 통해 면접 연습을 할 수 있으며, 사용자의 답변에 대한 간단한 피드백도 함께 진행됩니다.</h2>
+<div class="chatbot-button">
+    <button class = "submit-btn" onclick="window.open('https://cchatbot-ceufeswhj4cusu5q88uop3.streamlit.app/','_blank')">Career Buddy 사용하러 가기</button>
+</div>
+</div>
+
+<div class="chathow">
+    <h3>- Career Buddy 사용방법 -</h3>
+    <h4>1. "Career Buddy 사용하러 가기" 버튼을 클릭합니다.</h4>
+    <h4>2. 사용자 이력서(자기소개서) 또는 희망 직업을 첨부합니다.</h4>
+    <h4>3. 사용자는 텍스트 또는 음성으로 Career Buddy에게 질문하고 답한다.</h4>
+</div>
+
+<div class="down">
+    <a href="이력서.docx" download>이력서 다운로드</a>
+</div>
+
+<h5>이력서 파일이 필요하신 경우 다운로드하여 사용해 주세요.</h5>

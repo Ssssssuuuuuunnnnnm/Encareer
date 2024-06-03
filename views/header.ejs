@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA_Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Encareer </title>
+
+    <style>
+    .Title > a{
+    color:navy;
+    font-size: 65px;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+}
+
+.Top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 30px 40px;
+    border-bottom: solid 4px navy;
+}
+
+.Top input {
+    margin-left: 15px;
+    width:300px;
+    height:50px;
+    padding: 5px 10px;
+    border:4px solid navy;
+    box-sizing: content-box ;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color:black;
+    font-size: 25px;
+    transition: width .4s;
+    border-radius: 40px;
+}
+
+.Top input:focus{
+     width:300px;
+     border-color:rgba(55, 87, 121, 0.353);
+}
+
+.Log{
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.Log a {
+color: navy;
+margin-left: 20px;
+font-size: 20px;
+text-decoration: none;
+}
+
+
+        </style>
+    </head>
+
+<script>
+    
+</script>
+
+<body>
+    <form action="/search" method="get">
+    <div class="Top">
+        <div class="Title">
+            <a href = "/Main">Encareer</a>
+            <input type="text" name="query" id="search">
+        </div>
+
+        <div class="Log">
+            <% if(id){ %>
+                <a href="/Mypage">마이페이지</a>
+                <a href = "/Logout">로그아웃</a>
+            <% }else{ %>
+                <a href="/Login">로그인</a>
+                <a href = "/Signup">회원가입</a>
+            <% } %>
+        </div>
+    </div>
+</form>
+
+</body>

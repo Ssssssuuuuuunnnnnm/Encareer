@@ -1,0 +1,148 @@
+<style>
+    /* right */
+
+.CPage {
+    padding-top: 20px;
+}
+
+.CPage > h1 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    
+}
+
+
+.JPage > h1 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.EPage > h1 {
+    float:left;
+    color:navy;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+/* 자격증 정보 */
+#wrapper{
+    display:grid; 
+    grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+
+.card {
+    width: 400px;
+    color: black;
+    background-color:white;
+    border: solid 2px gray;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.card p {
+    text-align: center;
+    padding:0.6rem;
+    line-height:1.6em;
+    margin-bottom: 10px;
+}
+
+.card a {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    width: 350px;
+}
+
+
+</style>
+
+<%- include('header.ejs') %>
+<%- include('left.ejs') %>
+
+<!-- right -->
+<div class="CPage" id="CPage">
+    <h1>추천 공모전</h1>
+    <div class="contests">
+        <div id="wrapper">
+        <% if (contests && contests.length > 0) { %>
+            <% contests.forEach(function(contest) { %>
+                <div class="card">
+                    <a><%= contest.Cn %></a>
+                    <p><%= contest.Explain %></p>
+                    <a href="<%= contest.CL %>" target="_blank"><img src="<%= contest.Cimg %>" alt="<%= contest.Cn %>"></a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No contests available at the moment.</p>
+        <% } %>
+    </div>
+</div>
+</div>
+    
+<br>
+
+<div class="JPage" id="JPage">
+    <h1>추천 자격증</h1>
+    <div class="certifications">
+        <div id="wrapper">
+        <% if (certifications && certifications.length > 0) { %>
+            <% certifications.forEach(function(certi) { %>
+                <div class="card">
+                    <a href="<%= certi.Clinks %>" target="_blank"><%= certi.Cname %></a>
+                    <p><%= certi.Explain %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No certifications available at the moment.</p>
+        <% } %>
+    </div>
+</div>
+</div>
+
+<br>
+
+<div class="EPage" id="EPage">
+    <h1>추천 대외활동</h1>
+    <div class="certifications">
+        <div id="wrapper">
+        <% if (certifications && certifications.length > 0) { %>
+            <% certifications.forEach(function(certi) { %>
+                <div class="card">
+                    <a href="<%= certi.Clinks %>" target="_blank"><%= certi.Cname %></a>
+                    <p><%= certi.Explain %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No certifications available at the moment.</p>
+        <% } %>
+    </div>
+</div>
+</div>

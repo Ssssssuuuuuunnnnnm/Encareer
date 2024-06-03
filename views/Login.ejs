@@ -1,0 +1,107 @@
+<Style>
+body {
+    text-align: center;
+}
+
+
+p {
+    font-size: 20px;
+    text-align: left;
+}
+
+img {
+    width: 16%;
+}
+
+.main > a {
+    text-decoration: none;
+    color: navy;
+}
+
+.main {
+    padding-top: 55px;
+    color:navy;
+    font-size: 80px;
+    font-weight: 900;
+    text-decoration : none;
+
+}
+
+p2{
+    color:gray;
+    font-size: 22px;
+
+}
+
+
+.login-form {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.text-field {
+    border-color: navy;
+    border-style: solid;
+    border-width: 5px;
+    font-size: 19px;
+    border-radius: 7px;
+    padding: 15px;
+    width: 500px;
+    margin-bottom: 40px;
+}
+
+.submit-btn {
+    color: white;
+    font-size: 25px;
+    background-color: navy;
+    border-radius: 50px;
+    padding: 10px;
+    width: 525px;
+    margin-bottom: 50px;
+}
+
+.links {
+    color: gray;
+    font-size: 20px;
+    text-align: center;
+}
+
+.links > a{
+    text-decoration: none;
+    color: navy;
+}
+
+img {
+    border-radius: 4px;
+    width: 180px;
+    height: 70px;
+}
+
+</Style>
+
+
+<div class = "main">
+    <a href = "/Main">Encareer</a>
+</div>
+
+<br>
+<br>
+
+<br>
+<br>
+
+<div class = "login-form">
+    <form action="/loginProc" method="post">
+        <p> 아이디 </p>
+        <input type = "text" name = "id" class = "text-field" placeholder = "아이디" required>
+        <p> 비밀번호 </p>
+        <input type = "password" name = "pw" class = "text-field" placeholder = "비밀번호" required>
+        
+        <button class = "submit-btn">로그인</button>
+    </form>
+
+</div>
+
+<div class = "links">
+    <a href = "/Signup">회원가입</a>
+</div>

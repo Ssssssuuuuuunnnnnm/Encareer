@@ -1,0 +1,473 @@
+<style>
+    /* left */
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+    
+    .menu {
+        position: static;
+        float:left;
+        width: 200px;
+        background-color: white;
+        overflow-x: hidden;
+        padding-top: 20px;
+        border-right: solid 2px navy;
+        height: 1000px;
+    }
+    
+    .btn{
+        display: block;
+        padding: 20px 20px;
+        color: navy;
+        position: relative;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    
+    .main-content .menu .Page .Pages{
+        padding: 10px 20px 34px 0px;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+    }
+    
+    .main-content .menu .Page .Pages > a{
+        padding-left: 35px;
+    }
+    
+    .main-content .menu .Page .Pages:hover > a{
+        background-color: navy;
+        color: #fff;
+        transition: .3s;
+    }
+    
+    .menu .ul{
+        text-align: center;
+        position: relative;
+          }
+    
+    .Page{
+        width: 250px;
+        display: block;
+        overflow: hidden;
+    }
+    
+    #info.Pages > a {
+        background-color: navy;
+        color: #fff;
+        transition: .3s;
+    }
+    
+    /*right-top*/
+    .right-content{
+        padding-top: 20px;
+    }
+    
+    .right-content a1{
+        margin-left: 30px;
+        color:navy;
+        font-size: 35px;
+        font-weight: 600;
+    }
+    
+    label {
+        color: navy;
+        font-weight: 600;
+        font-size: 18px;
+        margin-left: 20px;
+        margin-right: 6px;
+    }
+    
+    select {
+        margin-top: 13px;
+        padding: 0.5rem 0.5rem;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    
+    /* 조건 검색 버튼 */
+    button {
+        margin-left: 10px;
+        background: rgba(55, 87, 121, 0.353);
+        color: white;
+        padding: 0.5rem 1rem;
+    
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+        
+        border: none;
+        border-radius: 3px;
+        
+        display: inline-block;
+        width: auto;
+        
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: navy;
+    }
+    
+    .alls{
+        color:navy;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    /* 페이지 버튼 css*/
+    /* 페이지네이션 전체 컨테이너 스타일 */
+    .pagination {
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    /* 모든 페이지네이션 링크에 대한 스타일 */
+    .pagination a {
+        color: black; /* 텍스트 색상 */
+        background-color: #ffffff; /* 배경색 */
+        border-radius: 5px; /* 모서리 둥글게 */
+        padding: 8px 16px; /* 안쪽 여백 */
+        margin: 0 4px; /* 주변 여백 */
+        text-decoration: none; /* 밑줄 없애기 */
+        display: inline-block; /* 인라인 블록으로 표시 */
+        transition: background-color 0.3s, color 0.3s; /* 배경색과 텍스트 색상 전환 효과 */
+    }
+    
+    /* 페이지네이션 링크에 마우스 호버 효과 */
+    .pagination a:hover {
+        background-color: #ffffff; /* 호버 시 배경색 변경 */
+        color: rgba(35, 35, 107, 0.945); /* 호버 시 텍스트 색상 변경 */
+    }
+    
+    /* 비활성화된 페이지 링크 스타일 (예: 현재 페이지나 사용할 수 없는 페이지) */
+    .pagination a.disabled, .pagination a.disabled:hover {
+        background-color: #cccccc; /* 비활성화 배경색 */
+        color: #666666; /* 비활성화 텍스트 색상 */
+        cursor: not-allowed; /* 마우스 커서 모양 변경 */
+        pointer-events: none; /* 클릭 이벤트 제거 */
+    }
+    
+    /* 현재 페이지 링크 스타일 */
+    .pagination a.active {
+        background-color: rgba(35, 35, 107, 0.945); /* 활성 페이지 배경색 변경 */
+        color: #ffffff; /* 활성 페이지 텍스트 색상 변경 */
+        font-weight: bold; /* 텍스트를 굵게 */
+        border: 1px solid rgba(35, 35, 107, 0.945); /* 테두리 추가 */
+    }
+    
+    /* 테이블 스타일 */
+    table {
+        width: 89%; /* 테이블 너비를 100%로 설정 */
+        border-collapse: collapse; /* 테두리 겹치기 제거 */
+        margin: 20px 0; /* 상하 여백 */
+        background-color: #f8f9fa; /* 배경색 */
+    }
+    
+    /* 테이블 헤더 스타일 */
+    th {
+        background-color: rgba(35, 35, 107, 0.945); /* 헤더 배경색 */
+        color: rgb(255, 255, 255); /* 헤더 글자색 */
+        padding: 12px 15px; /* 패딩 */
+        border: 1px solid #dee2e6; /* 테두리 색상 */
+    }
+    
+    /* 테이블 데이터 셀 스타일 */
+    td {
+        padding: 12px 15px; /* 셀 내부 패딩 */
+        border: 1px solid #dee2e6; /* 셀 테두리 색상 */
+        text-align: left; /* 텍스트 왼쪽 정렬 */
+    }
+    
+    /* 짝수 번째 행 배경색 */
+    tr:nth-child(even) {
+        background-color: #ffffff; /* 짝수 행 배경색 */
+    }
+    
+    /* 마우스 오버 시 행 배경색 변경 */
+    tr:hover {
+        background-color: #e9ecef; /* 호버 시 배경색 */
+    }
+    
+</style>
+
+    <%- include('header.ejs') %>
+
+    <!-- left -->
+    <div class="main-content">
+    <div class="menu">
+        <ui class="Page">
+            <li class="Pages" id="info">
+                <a href="Job" class="btn">채용정보</a>
+            </li>
+            <li class="Pages" id="contest">
+                <a href="Contest" class="btn">공모전</a>
+            </li>
+            <li class="Pages" id="certificate">
+                <a href="Certi" class="btn">자격증</a>
+            </li>
+            <li class="Pages" id="exhibition">
+                <a href="Exhibition" class="btn">대외활동</a>
+            </li>
+            <li class="Pages" id="chatbot">
+                <a href="CareerBuddy" class="btn">CareerBuddy</a>
+            </li>
+        </ui>
+    </div>
+</div>
+
+
+ <!-- right -->
+ <div class="right-content">
+    <a1>채용정보</a1>
+
+    <form id="searchForm" class="search-section">
+        <div>
+            <label for="instType">기업형태 :</label>
+            <select id="instType">
+                <option value="all">전체</option>
+                <option value="major company">대기업</option>
+                <option value="medium-size company">중견기업</option>
+                <option value="public company">공공기관</option>
+                <option value="other company">기타기업</option>
+            </select>
+
+            <label for="instNm">공시기관 :</label>
+            <select id="instNm">
+                <option value="">전체</option>
+            </select>
+
+            <label for="ncsCdNmLst">채용분야 :</label>
+            <select id="ncsCdNmLst">
+                <option value="all">전체</option>
+                <option value="app">앱개발</option>
+                <option value="web">웹개발</option>
+                <option value="game">게임개발</option>
+                <option value="ai">빅데이터ㆍ인공지능</option>
+                <option value="pm">서비스기획ㆍPM</option>
+            </select>
+
+            <label for="workRgnNmLst">근무지역 :</label>
+            <select id="workRgnNmLst">
+                <option value="">전체</option>
+                <option value="seouls">서울</option>
+                <option value="incheon">인천</option>
+                <option value="suwon">수원</option>
+                <option value="busan">부산</option>
+            </select>
+
+            <label for="hireTypeLst">고용형태 :</label>
+            <select id="hireTypeLst">
+                <option value="intern">인턴</option>
+                <option value="regular employees">계약직</option>
+            </select>
+
+            <label for="hireTypeLst">채용대상 :</label>
+            <select id="hireTypeLst">
+                <option value="all">전체</option>
+                <option value="new">신입</option>
+                <option value="work experience">경력</option>
+            </select>
+
+        </div>
+
+        <div>
+            <label for="ongoingYn">상태 :</label>
+            <select id="ongoingYn">
+                <option value="all">전체</option>
+                <option value="Y">채용중</option>
+                <option value="N">마감</option>
+            </select>
+
+            <label for="pbancBgngYmd">기간(시작) :</label>
+            <input type="date" id="pbancBgngYmd">
+
+            <label for="pbancEndYmd">기간(종료) :</label>
+            <input type="date" id="pbancEndYmd">
+
+            <label for="recrutPbancTtl">제목 :</label>
+            <input type="text" id="recrutPbancTtl" placeholder="검색어를 입력하세요">
+
+            <button id="searchButton">검색</button>
+        
+            </div>
+    </form>
+
+    <div id="totalResults" class="alls">전체 0건</div>
+
+    <table id="recruitmentTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>상태</th>
+                <th>공시기관</th>
+                <th>제목</th>
+                <th>시작일</th>
+                <th>종료일</th>
+                <th>채용분야</th>
+                <th>고용형태</th>
+                <th>채용대상</th>
+                <th>채용인원</th>
+                <th>근무지역</th>
+            </tr>
+        </thead>
+        <tbody class="Datas">
+            <!-- 검색 결과가 여기에 표시됩니다 -->
+        </tbody>
+    </table>
+
+    <nav  class="pagination">
+        <a href="#" class="control prev">이전</a>
+        <span class="page-container"></span> <!-- 페이지 번호를 동적으로 추가할 컨테이너 -->
+        <a href="#" class="control next">다음</a>
+    </nav>
+
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const apiUrl = 'https://apis.data.go.kr/1051000/recruitment/list?serviceKey=k37HWktPjA3anJe%2FxNyy3%2Fo9Q8KSCrfdRqnwIri1WdLi%2BJNuK6t6mSeeLu0TMZKU1KA%2FdIKLqYDYlqGxp0fFTQ%3D%3D&numOfRows=10&replmprYn=N&resultType=json';
+const itemsPerPage = 10;
+let currentPage = 1;
+let currentGroup = 1;
+let totalPages = 0; // 전체 페이지 수는 나중에 계산됩니다.
+const groupSize = 5; // 한 번에 보여줄 페이지 수
+const totalResultsElement = document.getElementById('totalResults'); // 전체 결과 수를 표시할 요소
+const searchButton = document.getElementById('searchButton'); // 검색 버튼
+const searchInput = document.getElementById('recrutPbancTtl'); // 검색 입력 필드
+const ongoingSelect = document.getElementById('ongoingYn'); // 상태 선택 필드
+
+function loadRecruitmentData(page, searchKeyword = '', ongoingStatus = '') {
+let fullApiUrl = `${apiUrl}&pageNo=${page}`;
+if (searchKeyword) {
+    fullApiUrl += `&recrutPbancTtl=${encodeURIComponent(searchKeyword)}`;
+}
+if (ongoingStatus) {
+    fullApiUrl += `&ongoingYn=${ongoingStatus}`;
+}
+fetch(fullApiUrl, { cache: 'no-cache' }) // 캐시 방지 옵션 추가
+    .then(response => response.json())
+    .then(data => {
+        console.log("데이터 로딩 완료: ", data);
+        if (data.totalCount) {
+            totalPages = Math.ceil(data.totalCount / itemsPerPage);
+            updateTable(data);
+            updatePagination();
+            updateActivePage();
+        }
+    })
+    .catch(error => {
+        console.error('데이터 로딩 에러:', error);
+        alert('데이터를 로드하는 중 에러가 발생했습니다.');
+    });
+}
+
+function updatePagination() {
+const pageContainer = document.querySelector('.page-container');
+pageContainer.innerHTML = ''; // 페이지 번호 버튼만 초기화
+let startPage = (currentGroup - 1) * groupSize + 1;
+let endPage = Math.min(startPage + groupSize - 1, totalPages);
+
+for (let page = startPage; page <= endPage; page++) {
+    const pageLink = document.createElement('a');
+    pageLink.href = '#';
+    pageLink.textContent = page;
+    pageLink.className = 'page';
+
+    if (page === currentPage) {
+        pageLink.classList.add('active'); // 현재 페이지에 'active' 클래스 추가
+    }
+
+    pageLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        currentPage = page;
+        loadRecruitmentData(currentPage, searchInput.value, ongoingSelect.value); // 상태 선택 값을 추가하여 데이터 로드
+        updateActivePage();
+    });
+    pageContainer.appendChild(pageLink);
+    pageContainer.appendChild(document.createTextNode(' '));
+}
+}
+
+function updateActivePage() {
+const links = document.querySelectorAll('.pagination .page');
+links.forEach(link => {
+    link.classList.remove('active'); // 모든 링크에서 'active' 클래스 제거
+    if (parseInt(link.textContent) === currentPage) {
+        link.classList.add('active'); // 현재 페이지에 'active' 클래스 추가
+    }
+});
+}
+
+function updateTable(data) {
+console.log("테이블 업데이트 데이터:", data); 
+const tableBody = document.getElementById('recruitmentTable').getElementsByTagName('tbody')[0];
+tableBody.innerHTML = ''; // 테이블 내용 초기화
+if (data && data.result && data.result.length > 0) {
+    data.result.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${(currentPage - 1) * 10 + index + 1}</td>
+            <td>${item.ongoingYn === 'Y' ? '진행중' : '마감'}</td>
+            <td>${item.instNm || '정보 없음'}</td>
+            <td><a href="/JobinfoP?sn=${item.recrutPblntSn}" target="_blank">${item.recrutPbancTtl || '정보 없음'}</a></td>
+            <td>${item.pbancBgngYmd || '정보 없음'}</td>
+            <td>${item.pbancEndYmd || '정보 없음'}</td>
+            <td>${item.ncsCdNmLst || '정보 없음'}</td>
+            <td>${item.hireTypeNmLst || '정보 없음'}</td>
+            <td>${item.recrutSeNm || '정보 없음'}</td>
+            <td>${item.recrutNope > 0 ? item.recrutNope : '정보 없음'}명</td>
+            <td>${item.workRgnNmLst || '정보 없음'}</td>
+            `;
+        tableBody.appendChild(row);
+    });
+    totalResultsElement.textContent = `전체 ${data.totalCount}건`;
+} else {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td colspan="12">데이터가 없습니다.</td>`;
+    tableBody.appendChild(row);
+    totalResultsElement.textContent = "전체 0건";
+}
+}
+
+document.querySelector('.next').addEventListener('click', function(event) {
+event.preventDefault();
+if (currentPage < totalPages) {
+    currentPage++;
+    if (currentPage > currentGroup * groupSize) {
+        currentGroup++;
+        updatePagination();
+    }
+    loadRecruitmentData(currentPage, searchInput.value, ongoingSelect.value); // 상태 선택 값을 추가하여 데이터 로드
+    updateActivePage();
+}
+});
+
+document.querySelector('.prev').addEventListener('click', function(event) {
+event.preventDefault();
+if (currentPage > 1) {
+    currentPage--;
+    if (currentPage < (currentGroup - 1) * groupSize + 1) {
+        currentGroup--;
+        updatePagination();
+    }
+    loadRecruitmentData(currentPage, searchInput.value, ongoingSelect.value); // 상태 선택 값을 추가하여 데이터 로드
+    updateActivePage();
+}
+});
+
+searchButton.addEventListener('click', function(event) {
+event.preventDefault();
+currentPage = 1;
+currentGroup = 1;
+loadRecruitmentData(currentPage, searchInput.value, ongoingSelect.value); // 상태 선택 값을 추가하여 데이터 로드
+});
+
+loadRecruitmentData(currentPage, searchInput.value, 'Y'); // 초기 데이터 로드 시 상태 값을 '진행중'으로 설정});
+});
+</script>

@@ -1,0 +1,78 @@
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.menu {
+    float:left;
+    width: 200px;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: solid 2px navy;
+    height: 1000px;
+}
+
+.btn{
+    display: block;
+    padding: 20px 20px;
+    color: navy;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.main-content .menu .Page .Pages{
+    padding: 10px 20px 34px 0px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.main-content .menu .Page .Pages > a{
+    padding-left: 35px;
+}
+
+.main-content .menu .Page .Pages:hover > a{
+    background-color: navy;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu .ul{
+    text-align: center;
+    position: relative;
+      }
+
+.Page{
+    width: 250px;
+    display: block;
+    overflow: hidden;
+}
+
+</style>
+
+<div class="main-content">
+    <!-- 왼쪽 메뉴 -->
+    <div class="menu">
+        <ui class="Page">
+            <li class="Pages" id="info">
+                <a href="/Job" class="btn">채용정보</a>
+            </li>
+            <li class="Pages" id="contest">
+                <a href="/Contest" class="btn">공모전</a>
+            </li>
+            <li class="Pages" id="certificate">
+                <a href="/Certi" class="btn">자격증</a>
+            </li>
+            <li class="Pages" id="exhibition">
+                <a href="/Exhibition" class="btn">대외활동</a>
+            </li>
+            <li class="Pages" id="chatbot">
+                <a href="/CareerBuddy" class="btn">CareerBuddy</a>
+            </li>
+        </ui>
+    </div>
